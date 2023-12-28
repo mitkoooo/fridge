@@ -1,38 +1,173 @@
 .App {
-  text-align: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.room {
+  /* Set the background image */
+  background-image: url("../public/kitchentile.jpg");
+  background-repeat: repeat; /* This will tile the image */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.fridge {
+  /* Align the box in center */
+  margin: 50px auto 0 auto; /* Set bottom margin to 0 */
+  padding: max(100px, 10%) 0px max(35%, 10%) 0px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: rgb(255, 249, 249);
+
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  border-radius: 35px;
+  border-width: 4.5px;
+
+  width: 23%;
+  height: 10%;
+
+  position: relative; /* Use relative positioning */
+
+  /* Set the fridge as a flex container */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end; /* Align items to the end */
 }
 
-.App-link {
-  color: #61dafb;
+.main {
+  background: radial-gradient(
+    circle at center,
+    rgb(236, 246, 251),
+    rgb(255, 255, 255)
+  );
+  /* Make the freezer position absolute */
+  position: absolute;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  left: 0px;
+  right: 0px;
+  top: 0.5px;
+  bottom: 40%;
+  text-align: center;
+  /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.freezer {
+  padding-top: 10%;
+  border-top: #000 3.5px solid;
+  background: radial-gradient(
+    circle at center,
+    rgb(236, 246, 251),
+    rgb(255, 255, 255)
+  );
+
+  /* Make the freezer position absolute */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  text-align: center;
+  /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
+}
+
+.floor {
+  /* Set border at the top of the box */
+  border-top: 3.5px solid #000;
+  /* Set the background image */
+  background-image: url("../public/kitchenfloor.jpg");
+  background-repeat: repeat; /* This will tile the image */
+
+  height: 35vh;
+}
+
+.pinboard {
+  background-image: url("../public/corkboard.jpg");
+  background-repeat: repeat; /* This will tile the image */
+
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 15%;
+  height: 15%;
+
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  border-width: 3.5px;
+
+  text-align: center;
+  color: rgb(251, 243, 243);
+  font-weight: 900;
+  font-size: 24px;
+  text-shadow: -1.2px 0 black, 0 1.2px black, 1.2px 0 black, 0 -1.2px black;
+
+  /* Use Flexbox to center the text */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.shelf {
+  border-bottom: solid 3.5px #1d1d1d;
+  background: linear-gradient(rgb(246, 250, 252), rgb(255, 255, 255));
+
+  width: 90%;
+  height: 12.5%;
+  margin: 8% 0% 5% 5%;
+}
+
+.main-door {
+  position: absolute;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  left: 0px;
+  right: 0px;
+  top: 0.5px;
+  bottom: 40%;
+  text-align: center;
+  /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
+}
+
+.main-handle {
+  background-color: black;
+
+  width: 2%;
+  height: 20%;
+  margin: 80% 0% 0% 10%;
+}
+
+.freezer-door {
+  padding-top: 10%;
+  border-top: #000 3.5px solid;
+
+  /* Make the freezer position absolute */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  text-align: center;
+  /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
+}
+
+.freezer-handle {
+  background-color: black;
+
+  width: 2%;
+  height: 20%;
+  margin: 10% 0% 0% 10%;
 }
