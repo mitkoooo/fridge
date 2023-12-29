@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("../public/Nunito-SemiBold.ttf");
+}
+
 .App {
   height: 100vh;
 }
@@ -36,10 +41,10 @@
   justify-content: flex-end; /* Align items to the end */
 }
 
-.main {
+.fridge-only {
   background: radial-gradient(
     circle at center,
-    rgb(236, 246, 251),
+    rgb(223, 239, 249),
     rgb(255, 255, 255)
   );
   /* Make the freezer position absolute */
@@ -60,7 +65,7 @@
   border-top: #000 3.5px solid;
   background: radial-gradient(
     circle at center,
-    rgb(236, 246, 251),
+    rgb(208, 238, 253),
     rgb(255, 255, 255)
   );
 
@@ -117,14 +122,14 @@
 
 .shelf {
   border-bottom: solid 3.5px #1d1d1d;
-  background: linear-gradient(rgb(246, 250, 252), rgb(255, 255, 255));
+  background: linear-gradient(rgb(236, 249, 255), rgb(255, 255, 255));
 
   width: 90%;
   height: 12.5%;
   margin: 8% 0% 5% 5%;
 }
 
-.main-door {
+.fridge-door {
   position: absolute;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -137,7 +142,7 @@
   box-sizing: border-box;
 }
 
-.main-handle {
+.fridge-handle {
   background-color: black;
 
   width: 2%;
@@ -170,4 +175,127 @@
   width: 2%;
   height: 20%;
   margin: 10% 0% 0% 10%;
+}
+
+.fridge-door-opened {
+  border-top: 4.5px solid;
+  border-left: 4.5px solid;
+  border-right: 4.5px solid;
+  border-bottom: 2px solid;
+  border-color: rgb(0, 0, 0);
+
+  background: linear-gradient(rgb(239, 247, 250), rgb(255, 255, 255));
+  position: absolute;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  height: auto;
+  width: 100%;
+
+  left: 100%;
+  right: 0px;
+  top: 0.5px;
+  bottom: 40%;
+  text-align: center;
+  /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
+}
+
+.big-shelf {
+  border-bottom: solid 3.5px #1d1d1d;
+  border-left: solid 3.5px #1d1d1d;
+  border-right: solid 3.5px #1d1d1d;
+  background: linear-gradient(rgb(249, 250, 250), rgb(255, 255, 255));
+
+  width: 90%;
+  height: 10.5%;
+  margin: 50% 0% 5% 5%;
+}
+
+.freezer-door-opened {
+  padding-top: 10%;
+  border-top: 2px solid;
+  border-left: 4.5px solid;
+  border-right: 4.5px solid;
+  border-bottom: 4.5px solid;
+  border-color: rgb(0, 0, 0);
+
+  background: linear-gradient(rgb(239, 247, 250), rgb(255, 255, 255));
+
+  /* Make the freezer position absolute */
+  width: 100%;
+
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  height: 40%;
+  z-index: 1;
+
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  text-align: center;
+  /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
+}
+
+.menu {
+  font-family: Nunito;
+  font-size: large;
+  background-color: white;
+
+  position: relative;
+  margin: 30% 0% 0% 2%;
+  padding: 1% 0% 1% 1%;
+
+  width: 30%;
+  height: 15%;
+
+  opacity: 95%;
+  backdrop-filter: blur(100%);
+
+  border-radius: 25px;
+}
+
+.menu .shelf {
+  border-bottom: solid 3.5px #1d1d1d;
+  background: white;
+
+  width: 90%;
+  height: 40%;
+  margin: 5% 0% 5% 5%;
+}
+
+.menu p {
+  text-align: center;
+  margin: 0% 0% 0% 0%;
+}
+
+.menu button {
+  position: relative;
+  font-family: Nunito;
+  font-size: 1.2vh;
+  background-color: rgb(241, 241, 241);
+  border: none;
+  margin: 0% 0% 0% 5%;
+  border-radius: 5%;
+  height: 15%;
+}
+
+button:hover {
+  background-color: rgb(215, 215, 215);
+}
+
+.menu input {
+  margin: 0 0 0 2%;
+  height: 1.8vh;
+  width: 20.5vh;
+}
+
+.close {
+  position: absolute;
+  top: 5%;
+  left: 90%;
+  font-size: 1.6em;
+  padding: 0%;
 }

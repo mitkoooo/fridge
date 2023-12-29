@@ -1,5 +1,8 @@
 import "./App.css";
 import { useState } from "react";
+import Pinboard from "./components/Pinboard";
+import Menu from "./components/Menu";
+import Shelf from "./components/Shelf";
 
 function App() {
   return (
@@ -9,6 +12,7 @@ function App() {
         <Fridge />
         <div className="floor"></div>
       </div>
+      <Menu />
     </div>
   );
 }
@@ -16,64 +20,73 @@ function App() {
 export default App;
 
 function Fridge() {
-  const [mainIsOpen, setMainIsOpen] = useState(false);
+  const [fridgeIsOpen, setFridgeIsOpen] = useState(false);
   const [freezerIsOpen, setFreezerIsOpen] = useState(false);
-  const onMainIsOpen = (open) => setMainIsOpen(open);
+
+  const handleFridgeOpen = () => setFridgeIsOpen((open) => !open);
+  const handleFreezerOpen = () => setFreezerIsOpen((open) => !open);
 
   return (
     <div className="fridge">
-      {mainIsOpen ? (
-        <MainSection mainIsOpen={mainIsOpen} onMainIsOpen={onMainIsOpen} />
+      {fridgeIsOpen ? (
+        <FridgeOnlySection onFridgeIsOpen={handleFridgeOpen} />
       ) : (
-        <MainDoor />
+        <FridgeDoor onFridgeIsOpen={handleFridgeOpen} />
       )}
-      {freezerIsOpen ? <Freezer /> : <FreezerDoor />}
+      {freezerIsOpen ? (
+        <Freezer onFreezerIsOpen={handleFreezerOpen} />
+      ) : (
+        <FreezerDoor onFreezerIsOpen={handleFreezerOpen} />
+      )}
     </div>
   );
 }
 
-function Shelf() {
-  return <div className="shelf"></div>;
-}
-
-function MainSection({ mainIsOpen, onMainIsOpen }) {
+function FridgeOnlySection({ onFridgeIsOpen }) {
+  const [fridgeItems, setFridgeItems] = useState([]);
   return (
-    <div className="main" onClick={() => onMainIsOpen((open) => !open)}>
-      <div className="shelf"></div>
-      <div className="shelf"></div>
-      <div className="shelf"></div>
-      <div className="shelf"></div>
-      <div className="shelf"></div>
-    </div>
+    <>
+      <div className="fridge-only">
+        <Shelf />
+        <Shelf />
+        <Shelf />
+        <Shelf />
+        <Shelf />
+      </div>
+      <div className="fridge-door-opened" onClick={onFridgeIsOpen}>
+        <div className="shelf"></div>
+        <div className="shelf"></div>
+        <div className="big-shelf"></div>
+      </div>
+    </>
   );
 }
 
-function Pinboard({ children }) {
-  return <div className="pinboard">{children}</div>;
-}
-
-function MainDoor() {
+function FridgeDoor({ onFridgeIsOpen }) {
   return (
-    <div className="main-door">
-      <div className="main-handle"></div>
+    <div className="fridge-door">
+      <div className="fridge-handle" onClick={onFridgeIsOpen}></div>
     </div>
   );
 }
 
-function FreezerDoor() {
+function FreezerDoor({ onFreezerIsOpen }) {
   return (
     <div className="freezer-door">
-      <div className="freezer-handle"></div>
+      <div className="freezer-handle" onClick={onFreezerIsOpen}></div>
     </div>
   );
 }
 
-function Freezer() {
+function Freezer({ onFreezerIsOpen }) {
   return (
-    <div className="freezer">
-      <div className="shelf"></div>
-      <div className="shelf"></div>
-      <div className="shelf"></div>
-    </div>
+    <>
+      <div className="freezer">
+        <div className="shelf"></div>
+        <div className="shelf"></div>
+        <div className="shelf"></div>
+      </div>
+      <div className="freezer-door-opened" onClick={onFreezerIsOpen}></div>
+    </>
   );
 }
