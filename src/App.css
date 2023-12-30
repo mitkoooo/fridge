@@ -44,7 +44,7 @@
 .fridge-only {
   background: radial-gradient(
     circle at center,
-    rgb(223, 239, 249),
+    rgb(233, 246, 253),
     rgb(255, 255, 255)
   );
   /* Make the freezer position absolute */
@@ -65,7 +65,7 @@
   border-top: #000 3.5px solid;
   background: radial-gradient(
     circle at center,
-    rgb(208, 238, 253),
+    rgb(233, 246, 253),
     rgb(255, 255, 255)
   );
 
@@ -98,6 +98,11 @@
   background-image: url("../public/corkboard.jpg");
   background-repeat: repeat; /* This will tile the image */
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
   position: absolute;
   top: 10%;
   left: 10%;
@@ -121,12 +126,17 @@
 }
 
 .shelf {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
   border-bottom: solid 3.5px #1d1d1d;
   background: linear-gradient(rgb(236, 249, 255), rgb(255, 255, 255));
 
   width: 90%;
   height: 12.5%;
   margin: 8% 0% 5% 5%;
+  z-index: 2;
 }
 
 .fridge-door {
@@ -184,12 +194,13 @@
   border-bottom: 2px solid;
   border-color: rgb(0, 0, 0);
 
-  background: linear-gradient(rgb(239, 247, 250), rgb(255, 255, 255));
+  background: linear-gradient(rgb(242, 246, 248), rgb(255, 255, 255));
   position: absolute;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   height: auto;
   width: 100%;
+  z-index: 1;
 
   left: 100%;
   right: 0px;
@@ -200,7 +211,7 @@
   box-sizing: border-box;
 }
 
-.big-shelf {
+.shelf-big {
   border-bottom: solid 3.5px #1d1d1d;
   border-left: solid 3.5px #1d1d1d;
   border-right: solid 3.5px #1d1d1d;
@@ -209,6 +220,11 @@
   width: 90%;
   height: 10.5%;
   margin: 50% 0% 5% 5%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  z-index: 2;
 }
 
 .freezer-door-opened {
@@ -249,21 +265,12 @@
   padding: 1% 0% 1% 1%;
 
   width: 30%;
-  height: 15%;
+  height: 20%;
 
   opacity: 95%;
   backdrop-filter: blur(100%);
 
   border-radius: 25px;
-}
-
-.menu .shelf {
-  border-bottom: solid 3.5px #1d1d1d;
-  background: white;
-
-  width: 90%;
-  height: 40%;
-  margin: 5% 0% 5% 5%;
 }
 
 .menu p {
@@ -298,4 +305,68 @@ button:hover {
   left: 90%;
   font-size: 1.6em;
   padding: 0%;
+}
+
+.menu .shelf {
+  /* display: flex;
+  flex-direction: row;
+  gap: 8px; */
+
+  border-bottom: solid 3.5px #1d1d1d;
+  background: white;
+
+  width: 90%;
+  height: 30%;
+  margin: 5% 0% 5% 5%;
+}
+
+/* .fridge .shelf {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+} */
+
+.shelf-item {
+  position: relative;
+  margin: 0% 0% 0% 0%;
+  padding: 0% 0% 0% 0%;
+
+  width: 20%;
+  height: 100%;
+}
+
+.fridge-only .shelf-bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  
+  background: linear-gradient(rgb(236, 249, 255), rgb(255, 255, 255));
+
+  width: 90%;
+  height: 13.5%;
+  margin: 13% 0% 5% 5%;
+}
+
+.menu .shelf-big {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  background: white;
+  width: 90%;
+  height: 30%;
+  margin: 10% 0% 5% 5%;
+}
+
+.menu .shelf-bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  border-bottom: solid 3.5px #1d1d1d;
+  background: white;
+
+  width: 90%;
+  height: 30%;
+  margin: 10% 0% 5% 5%;
 }
