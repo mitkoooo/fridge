@@ -5,7 +5,6 @@ import Menu from "./components/Menu";
 import Shelf from "./components/Shelf";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [menuShelf, setMenuShelf] = useState(null);
   const [fridgeItems, setFridgeItems] = useState([
